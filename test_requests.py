@@ -28,7 +28,7 @@ class TestRequests(unittest.TestCase):
         self.assertEqual(response, correct_response)
 
     def test_csv_without_extension(self):
-        url = 'https://www.dropbox.com/s/8n9c8nvw3w1j2n6/photo_export_csv.txt'
+        url = 'https://drive.google.com/file/d/10APUcJCrnkCTk-mIdBMmnxSYFKl06reR/view?usp=sharing'
         response = requests.get(TEST_IP, data = {'url':url})
         response = json.loads(response.content)
         correct_response = {'url': url, 'format': 'csv'}
@@ -42,14 +42,14 @@ class TestRequests(unittest.TestCase):
         self.assertEqual(response, correct_response)
 
     def test_xml_without_extension(self):
-        url = 'https://www.dropbox.com/s/73gf13hqh31k11s/test_xml.txt'
+        url = 'https://drive.google.com/file/d/1bT5v6hNWma8e6iR98ardoGYBhQvCZFnO/view?usp=sharing'
         response = requests.get(TEST_IP, data = {'url':url})
         response = json.loads(response.content)
         correct_response = {'url': url, 'format': 'xml'}
         self.assertEqual(response, correct_response)
 
     def test_return_error(self):
-        url = 'https://www.dropbox.com/s/8m11j7vmq7cpbx0/VERTICAL.gpx'
+        url = 'http://i3.ytimg.com/vi/J---aiyznGQ/mqdefault.jpg'
         response = requests.get(TEST_IP, data = {'url':url})
         response = json.loads(response.content)
         correct_response = {'url': url, "error": "File format unknown or not recognizable."}

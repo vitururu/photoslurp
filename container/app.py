@@ -34,7 +34,7 @@ class DetectFormat(Resource):
                 return {'url': url, "error": "File format unknown or not recognizable."}
         except:
             print('Errooor')
-            return {'url': url, "error": "Unkown error during processing"}
+            return {'url': url, "error": "File format unknown or not recognizable."}
 api.add_resource(DetectFormat, '/')
 
 if __name__ == '__main__':
